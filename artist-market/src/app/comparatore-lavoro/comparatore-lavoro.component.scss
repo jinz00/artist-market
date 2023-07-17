@@ -15,13 +15,19 @@
   }
 
   &__entrate {
-    border: 2px solid blue;
+    border: 3px solid green;
     padding: 15px;
     border-radius: 10px;
   }
 
   &__spese {
-    border: 2px solid brown;
+    border: 3px solid brown;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  &__data-summary {
+    border: 3px solid blue;
     padding: 15px;
     border-radius: 10px;
   }

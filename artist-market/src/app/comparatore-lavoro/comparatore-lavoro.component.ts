@@ -17,6 +17,7 @@ oreGiorno = 24;
 entrateAnnue: number = 0;
 usciteAnnue = 0;
 bilancioAnnuo = 0;
+stipendioNettoMedioSingle = 21804;
 mesiLavoroAnno: number | undefined;
 giorniLavoroMese: number | undefined;
 oreLavoroGiorno: number | undefined;
@@ -28,9 +29,9 @@ constructor (private formBuilder: FormBuilder) {}
  ngOnInit() {
   this.datiLavoroForm = this.formBuilder.group({
     datiEconomici: this.formBuilder.group({
-      oreLavoroSettimana: new FormControl(),
-      giorniLavoroSettimana: new FormControl(),
-      mesiLavoroAnno: new FormControl(),// required
+      oreLavoroSettimana: new FormControl('', Validators.required),
+      giorniLavoroSettimana: new FormControl('', Validators.required),
+      mesiLavoroAnno: new FormControl('', Validators.required),
       ral: new FormControl( 0, Validators.required),
       buoniPasto: new FormControl(),
       bonusProduttività: new FormControl(),
@@ -147,7 +148,6 @@ reduceSomma(array: IImporti[]) {
 
 
 getNettoAnnuoFromRAL(ral: number) {
-  // TODO FUNZIONE CHE RICAVA IL NETTO DAL LORDO
   return ral * 1
 }
 

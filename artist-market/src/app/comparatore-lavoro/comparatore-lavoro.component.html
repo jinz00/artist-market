@@ -121,11 +121,19 @@
             <button (click)="aggiungiControl(spesaRicorrente)">Aggiungi Spesa</button>
           </div>
         </div>
+        <div class="comparatore-lavoro__worklife-balance mt-4">
+          <h3>WorkLife Balance</h3>
+        </div>
       </div>
       <button class="mt-4" type="submit" [disabled]="!datiLavoroForm.valid">Avvia Calcolatore</button>
     </form>
     <div *ngIf="showResults" class="col-xs-12 col-md-6 comparatore-lavoro__data-summary">
       <h2>RISULTATI</h2>
+      <div class="results-subtitle">
+        <b>
+
+        </b>
+      </div>
       <div class="">
         Entrate Nette Annue:
         <b>{{ entrateAnnue | currency : 'EUR'}}</b>
@@ -138,23 +146,11 @@
         Bilancio Netto Annuo:
         <b>{{ bilancioAnnuo | currency : 'EUR'}}</b>
       </div>
-      <div class="">
-        Guadagni in più rispetto allo stipendio medio italiano:<b></b>
-      </div>
-      <div>
-        Guadagni in Meno rispetto allo stipendio medio italiano:<b></b>
-      </div>
-      <div *ngIf="mesiLavoroAnno" class="">
-        Entrate Nette per mese di lavoro ({{mesiLavoroAnno}} mesi):
-        <b>{{ bilancioAnnuo / mesiLavoroAnno | currency : 'EUR'}}</b>
-      </div>
-      <div *ngIf="giorniLavoroMese && mesiLavoroAnno" class="">
-        Entrate Nette per giorno di lavoro effettivo:
-        <b>{{ bilancioAnnuo / mesiLavoroAnno / giorniLavoroMese | currency : 'EUR'}}</b>
-      </div>
-      <div *ngIf="oreLavoroGiorno && giorniLavoroMese && mesiLavoroAnno" class="">
-        Guadagno per ora di lavoro effettiva:
-        <b>{{ bilancioAnnuo / mesiLavoroAnno / giorniLavoroMese / oreLavoroGiorno | currency : 'EUR'}}</b>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          Paga mensile, giornaliera, oraria
+        </b>
       </div>
       <div class="">
         Entrate Nette Mensili (12 mesi):
@@ -167,6 +163,59 @@
       <div class="">
         Un'ora della tua vita vale:
         <b>{{ bilancioAnnuo / mesiAnno / giorniMese / oreGiorno | currency : 'EUR'}}</b>
+      </div>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          Paga Effettiva
+        </b>
+        <div *ngIf="mesiLavoroAnno" class="">
+          Entrate Nette per mese di lavoro ({{mesiLavoroAnno}} mesi):
+          <b>{{ bilancioAnnuo / mesiLavoroAnno | currency : 'EUR'}}</b>
+        </div>
+        <div *ngIf="giorniLavoroMese && mesiLavoroAnno" class="">
+          Entrate Nette per giorno di lavoro effettivo:
+          <b>{{ bilancioAnnuo / mesiLavoroAnno / giorniLavoroMese | currency : 'EUR'}}</b>
+        </div>
+        <div *ngIf="oreLavoroGiorno && giorniLavoroMese && mesiLavoroAnno" class="">
+          Guadagno per ora di lavoro effettiva:
+          <b>{{ bilancioAnnuo / mesiLavoroAnno / giorniLavoroMese / oreLavoroGiorno | currency : 'EUR'}}</b>
+        </div>
+      </div>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          Confronto con media italiana (Lavoratore dipendente senza figli Istat 2020)
+        </b>
+        <div class="">
+          Guadagni <b>{{bilancioAnnuo > stipendioNettoMedioSingle ? bilancioAnnuo - stipendioNettoMedioSingle : stipendioNettoMedioSingle - bilancioAnnuo | currency : 'EUR'}}</b> in <b>{{bilancioAnnuo > stipendioNettoMedioSingle ? 'più' : 'meno'}}</b> rispetto allo stipendio medio italiano.
+        </div>
+        <div>
+          Lavori <b></b> giorni in più rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> giorni in meno rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> ore settimanali in più rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> ore settimanali in meno rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> mesi in più rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> mesi in meno rispetto alla media italiana.
+        </div>
+      </div>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          WorkLife Balance
+        </b>
+        <div>
+        </div>
       </div>
     </div>
   </div>
