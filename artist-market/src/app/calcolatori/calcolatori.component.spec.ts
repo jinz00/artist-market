@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComparatoriComponent } from './comparatori.component';
+import { CalcolatoriComponent } from './calcolatori.component';
 
-describe('ComparatoriComponent', () => {
-  let component: ComparatoriComponent;
-  let fixture: ComponentFixture<ComparatoriComponent>;
+describe('CalcolatoriComponent', () => {
+  let component: CalcolatoriComponent;
+  let fixture: ComponentFixture<CalcolatoriComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ComparatoriComponent ]
+      declarations: [ CalcolatoriComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ComparatoriComponent);
+    fixture = TestBed.createComponent(CalcolatoriComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
