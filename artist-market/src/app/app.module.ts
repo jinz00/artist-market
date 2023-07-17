@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComparatoreLavoroComponent } from './comparatore-lavoro/comparatore-lavoro.component';
+import { ComparatoriComponent } from './comparatori/comparatori.component';
 
 
 
@@ -12,6 +13,7 @@ import { ComparatoreLavoroComponent } from './comparatore-lavoro/comparatore-lav
   declarations: [
     AppComponent,
     ComparatoreLavoroComponent,
+    ComparatoriComponent,
    ],
   imports: [
     BrowserModule,
