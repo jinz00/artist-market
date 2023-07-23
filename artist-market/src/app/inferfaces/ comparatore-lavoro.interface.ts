@@ -18,3 +18,10 @@ export interface IImporti {
   valore: number,
   anni?: number,
 }
+
+export interface ICalcolatoreSempliceStipendioOutput {
+  entrateNetteAnnue?: number;
+  entrateNetteMese?: number;
+  entreateGiornoLavoro?: number;
+  pagaOrariaNetta?: number;
+}

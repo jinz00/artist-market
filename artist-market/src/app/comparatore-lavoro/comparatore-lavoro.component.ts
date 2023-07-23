@@ -32,7 +32,7 @@ constructor (private formBuilder: FormBuilder) {}
       oreLavoroSettimana: new FormControl('', Validators.required),
       giorniLavoroSettimana: new FormControl('', Validators.required),
       mesiLavoroAnno: new FormControl('', Validators.required),
-      ral: new FormControl( 0, Validators.required),
+      ral: new FormControl( null, Validators.required),
       buoniPasto: new FormControl(),
       bonusProduttività: new FormControl(),
       straordinari: new FormControl(),

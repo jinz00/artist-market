@@ -10,12 +10,17 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button'; 
 import {LayoutModule} from '@angular/cdk/layout';
 import { CalcolatoriComponent } from './calcolatori/calcolatori.component';
+import { CalcolatorePagaSempliceComponent } from './calcolatore-paga-semplice/calcolatore-paga-semplice.component';
+import {MatInputModule} from '@angular/material/input'; 
+import {MatIconModule} from '@angular/material/icon'; 
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComparatoreLavoroComponent,
     CalcolatoriComponent,
+    CalcolatorePagaSempliceComponent,
    ],
   imports: [
     BrowserModule,
@@ -24,9 +29,11 @@ import { CalcolatoriComponent } from './calcolatori/calcolatori.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    MatInputModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'it' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

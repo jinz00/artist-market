@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calcolatori',
@@ -7,5 +8,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CalcolatoriComponent {
+  constructor(private router: Router) { }
 
+  navigateToCalcolatoreSemplice() {
+    this.router.navigate(['/calcolatore-semplice']);
+  }
+  navigateToCalcolatoreComplesso() {
+    this.router.navigate(['/calcolatore-complesso']);
+  }
 }
