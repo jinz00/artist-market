@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private router: Router) { }
   title = 'Calcolatori';
+  appVersion = '0.0.1';
 
   backToHome() {
     this.router.navigate(['/']);
