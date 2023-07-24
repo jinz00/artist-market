@@ -1,5 +1,21 @@
 
 <main>
+  <div class="header">
+    <div class="d-flex">
+      <div class="col-2">
+        <mat-icon (click)="backToHome()" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      </div>
+      <div class="col-8 d-flex justify-content-center">
+        <b>CALCOLATORI LAVORO</b>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
   <router-outlet></router-outlet>
+  <div class="footer d-flex justify-content-center">
+    <small>Per info e feedback scrivere a
+      <a class="px-1" href="mailto:alberto.contessini@gmail.com" target="_blank"> alberto.contessini@gmail.com</a>
+    </small>
+  </div>
 </main>
 

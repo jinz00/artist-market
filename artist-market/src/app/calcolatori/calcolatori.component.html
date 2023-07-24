@@ -1,18 +1,16 @@
-<div class="app-calcolatori-container">
-  <div class="row align-items-center">
+<div class="app-calcolatori-container pt-3">
+  <div class="row app-calcolatori__row align-items-center">
     <div class="pb-4 col-xs-12 col-lg-4 col-md-6 d-flex justify-content-center">
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Calcolatore Semplice</mat-card-title>
+          <mat-card-title>Calcolatore Entrate Semplice</mat-card-title>
           <mat-card-subtitle>Entrate / Tempo</mat-card-subtitle>
         </mat-card-header>
         <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
         <mat-card-content>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz
-            breeds of dog from Japan. A small, agile dog that copes very well with
-            mountainous terrain, the Shiba Inu was originally bred for hunting.
+            Calcolatore semplice per determinare le entrate nel tempo ( ore, giorno, mese )
           </p>
         </mat-card-content>
         <mat-card-actions>
@@ -24,19 +22,18 @@
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Calcolatore Complesso</mat-card-title>
-          <mat-card-subtitle>Entrate / Uscite</mat-card-subtitle>
+          <mat-card-title>Calcolatore Bilancio Complesso</mat-card-title>
+          <mat-card-subtitle>Bilancio entrate uscite / Tempo</mat-card-subtitle>
         </mat-card-header>
         <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
         <mat-card-content>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz
-            breeds of dog from Japan. A small, agile dog that copes very well with
-            mountainous terrain, the Shiba Inu was originally bred for hunting.
+            Calcolatore complesso per determinare il bilancio netto nel tempo ( ore, giorno, mese ).
+            Tiene in considerazione tutti i tipi di entrate e di uscite.
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button (click)="navigateToCalcolatoreComplesso()" mat-raised-button color="primary" class="full-width-btn">Calcola</button>
+          <button mat-raised-button color="primary" disabled="disabled" class="full-width-btn">In Arrivo</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -44,19 +41,17 @@
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Calcolatore Semplice</mat-card-title>
-          <mat-card-subtitle>Stipendio / Entrate</mat-card-subtitle>
+          <mat-card-title>Calcolatore Superminimi</mat-card-title>
+          <mat-card-subtitle>Superminimi / Entrate</mat-card-subtitle>
         </mat-card-header>
         <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
         <mat-card-content>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz
-            breeds of dog from Japan. A small, agile dog that copes very well with
-            mountainous terrain, the Shiba Inu was originally bred for hunting.
+            Calcolatore semplice per determinare la differenza di reddito nel caso in cui l'azienda per cui lavori non assorbisse i superminimi.
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" class="full-width-btn">Calcola</button>
+          <button mat-raised-button color="primary" disabled="disabled" class="full-width-btn">In Arrivo</button>
         </mat-card-actions>
       </mat-card>
     </div>
