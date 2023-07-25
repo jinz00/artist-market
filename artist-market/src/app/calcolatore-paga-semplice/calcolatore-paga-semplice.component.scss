@@ -1,4 +1,11 @@
 .calcolatore-paga-semplice {
+
+  &__instruction {
+    ul {
+      padding-left: 1rem;
+    }
+  }
+
   &__form {
     flex-direction: column;
 

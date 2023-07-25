@@ -1,6 +1,16 @@
 
 <div class="calcolatore-paga-semplice py-2 px-3">
-    <h1 class="py-1">CALCOLATORE ENTRATE SEMPLICE</h1>
+    <h1 class="py-1 mb-0">CALCOLATORE ENTRATE SEMPLICE</h1>
+    <div class="calcolatore-paga-semplice__instruction pb-2">
+        <ul>
+            <span class="semi-bold">Istruzioni</span>: 
+            <li>Calcolatore semplice per determinare la paga oraria, giornaliera, mensile, annuale.</li>
+            <li>Utilizzare importi <span class="semi-bold">netti</span>.</li>
+            <li>I campi contrassegnati da * sono obbligatori.</li>
+            <li>Inserire buoni pasto e straordinari mensili <span class="semi-bold">medi</span> ( sono moltiplicati per 11 mensilità assumendo 1 mese di ferie l'anno).</li>
+            <li>Inserire orari <span class="semi-bold">reali</span> (30 min in più al giorno sono 10 ore mensili).</li>
+        </ul>
+    </div>
     <div class="row justify-content-start">
         <div class="col-xs-12 col-lg-6 col-xl-4 pb-3 mb-1">
             <div class="calcolatore-paga-semplice__input-data">
@@ -9,7 +19,7 @@
                     <div class="col-xs-12 calcolatore-paga-semplice__form-field">
                         <mat-form-field class="example-form-field">
                             <mat-label>Stipendio Netto Mensile</mat-label>
-                            <input matInput type="number" class="no-spinners" [formControlName]="'stipendioMensile'">
+                            <input onwheel="return false;" matInput type="number" class="no-spinners" [formControlName]="'stipendioMensile'">
                             <button *ngIf="datiLavoroForm.get('stipendioMensile')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="resetField(datiLavoroForm.get('stipendioMensile')!)">
                                 <mat-icon>close</mat-icon>
                             </button>
@@ -18,7 +28,7 @@
                     <div class="col-xs-12 calcolatore-paga-semplice__form-field">
                         <mat-form-field class="example-form-field">
                             <mat-label>Buoni Pasto Mensili</mat-label>
-                            <input matInput type="number" class="no-spinners" [formControlName]="'buoniPasto'">
+                            <input onwheel="return false;" matInput type="number" class="no-spinners" [formControlName]="'buoniPasto'">
                             <button *ngIf="datiLavoroForm.get('buoniPasto')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="resetField(datiLavoroForm.get('buoniPasto')!)">
                                 <mat-icon>close</mat-icon>
                             </button>
@@ -27,7 +37,7 @@
                     <div class="col-xs-12 calcolatore-paga-semplice__form-field">
                         <mat-form-field class="example-form-field">
                             <mat-label>Straordinari Netti Mensili</mat-label>
-                            <input matInput type="number" class="no-spinners" [formControlName]="'straordinari'">
+                            <input onwheel="return false;" matInput type="number" class="no-spinners" [formControlName]="'straordinari'">
                             <button *ngIf="datiLavoroForm.get('straordinari')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="resetField(datiLavoroForm.get('straordinari')!)">
                                 <mat-icon>close</mat-icon>
                             </button>
@@ -36,7 +46,7 @@
                     <div class="col-xs-12 calcolatore-paga-semplice__form-field">
                         <mat-form-field class="example-form-field">
                             <mat-label>Bonus Annuale</mat-label>
-                            <input matInput type="number" class="no-spinners" [formControlName]="'bonusProduttività'">
+                            <input onwheel="return false;" matInput type="number" class="no-spinners" [formControlName]="'bonusProduttività'">
                             <button *ngIf="datiLavoroForm.get('bonusProduttività')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="resetField(datiLavoroForm.get('bonusProduttività')!)">
                                 <mat-icon>close</mat-icon>
                             </button>
@@ -45,7 +55,7 @@
                     <div class="col-xs-12 calcolatore-paga-semplice__form-field">
                         <mat-form-field class="example-form-field">
                             <mat-label>Numero Mensilità</mat-label>
-                            <input matInput type="number" class="no-spinners" [formControlName]="'mensilità'">
+                            <input onwheel="return false;" matInput type="number" class="no-spinners" [formControlName]="'mensilità'">
                             <button *ngIf="datiLavoroForm.get('mensilità')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="resetField(datiLavoroForm.get('mensilità')!)">
                                 <mat-icon>close</mat-icon>
                             </button>
@@ -54,7 +64,7 @@
                     <div class="col-xs-12 calcolatore-paga-semplice__form-field">
                         <mat-form-field class="example-form-field">
                             <mat-label>Giorni di lavoro a Settimana</mat-label>
-                            <input matInput type="number" class="no-spinners" [formControlName]="'giorniLavoroSettimana'">
+                            <input onwheel="return false;" matInput type="number" class="no-spinners" [formControlName]="'giorniLavoroSettimana'">
                             <button *ngIf="datiLavoroForm.get('giorniLavoroSettimana')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="resetField(datiLavoroForm.get('giorniLavoroSettimana')!)">
                                 <mat-icon>close</mat-icon>
                             </button>
@@ -63,7 +73,7 @@
                     <div class="col-xs-12 calcolatore-paga-semplice__form-field">
                         <mat-form-field class="example-form-field">
                             <mat-label>Ore di lavoro giornaliere</mat-label>
-                            <input matInput type="number" class="no-spinners" [formControlName]="'oreLavoroGiorno'">
+                            <input onwheel="return false;" matInput type="number" class="no-spinners" [formControlName]="'oreLavoroGiorno'">
                             <button *ngIf="datiLavoroForm.get('oreLavoroGiorno')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="resetField(datiLavoroForm.get('oreLavoroGiorno')!)">
                                 <mat-icon>close</mat-icon>
                             </button>
@@ -76,13 +86,23 @@
             </div>
         </div>
     
-        <div *ngIf="pagaStipendioOutput.entrateNetteAnnue" id="calcolatore-semplice-results" class="col-xs-12 col-lg-6 col-xl-8">
+        <div *ngIf="pagaStipendioOutput.entrateNetteAnnue" class="col-xs-12 col-lg-6 col-xl-8">
             <div class="calcolatore-paga-semplice__output-data">
-                <h2 class="calcolatore-paga-semplice__output-title pb-1 mb-0">Risultati</h2>
-                <p>Stipendio netto annuo: <b>{{pagaStipendioOutput.entrateNetteAnnue | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
-                <p>Entrate nette mensili: <b>{{pagaStipendioOutput.entrateNetteMese | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
-                <p>Entrate nette per giorno di lavoro: <b>{{pagaStipendioOutput.entreateGiornoLavoro | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
-                <p>Entrate nette per ora di lavoro: <b>{{pagaStipendioOutput.pagaOrariaNetta | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
+                <h2 class="calcolatore-paga-semplice__output-title pb-1 mb-0" id="calcolatore-semplice-results">Risultati</h2>
+                <div class="calcolatore-paga-semplice__output-results--mensile-tot">
+                    <div class="pb-2 semi-bold">Risultati ottenuti considerando <b>tutte</b> le entrate annuali divise su 12 mensilità (buoni pasto, bonus, straordinari)</div>
+                    <p>Stipendio netto annuo: <b>{{pagaStipendioTotOutput.entrateNetteAnnue | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
+                    <p>Entrate nette mensili: <b>{{pagaStipendioTotOutput.entrateNetteMese | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
+                    <p>Entrate nette per giorno di lavoro: <b>{{pagaStipendioTotOutput.entreateGiornoLavoro | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
+                    <p>Entrate nette per ora di lavoro: <b>{{pagaStipendioTotOutput.pagaOrariaNetta | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>    
+                </div>
+                <div class="calcolatore-paga-semplice__output-results--mensile pt-3">
+                    <div class="pb-2 semi-bold">Risultati ottenuti considerando <b>soltanto</b> lo stipendio mensile</div>
+                    <p>Stipendio netto annuo: <b>{{pagaStipendioOutput.entrateNetteAnnue | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
+                    <p>Entrate nette mensili: <b>{{pagaStipendioOutput.entrateNetteMese | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
+                    <p>Entrate nette per giorno di lavoro: <b>{{pagaStipendioOutput.entreateGiornoLavoro | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
+                    <p>Entrate nette per ora di lavoro: <b>{{pagaStipendioOutput.pagaOrariaNetta | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>    
+                </div>
             </div>
         </div>
     </div>

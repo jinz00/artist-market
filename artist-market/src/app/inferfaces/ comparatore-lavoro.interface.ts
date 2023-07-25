@@ -25,3 +25,13 @@ export interface ICalcolatoreSempliceStipendioOutput {
   entreateGiornoLavoro?: number;
   pagaOrariaNetta?: number;
 }
+
+export interface ICalcolatoreSempliceStipendioInput {
+  bonusProduttività: number;
+  buoniPasto: number;
+  giorniLavoroSettimana: number;
+  mensilità: number;
+  oreLavoroGiorno: number;
+  stipendioMensile: number;
+  straordinari: number
+}
