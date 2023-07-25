@@ -89,14 +89,14 @@
         <div *ngIf="pagaStipendioOutput.entrateNetteAnnue" class="col-xs-12 col-lg-6 col-xl-8">
             <div class="calcolatore-paga-semplice__output-data">
                 <h2 class="calcolatore-paga-semplice__output-title pb-1 mb-0">Risultati</h2>
-                <div class="calcolatore-paga-semplice__output-results--mensile-tot" id="calcolatore-semplice-results">
+                <div class="calcolatore-paga-semplice__output-results--mensile-tot">
                     <div class="pb-2 semi-bold">Risultati ottenuti considerando <b>tutte</b> le entrate annuali divise su 12 mensilità (buoni pasto, bonus, straordinari)</div>
                     <p>Stipendio netto annuo: <b>{{pagaStipendioTotOutput.entrateNetteAnnue | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
                     <p>Entrate nette mensili: <b>{{pagaStipendioTotOutput.entrateNetteMese | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
                     <p>Entrate nette per giorno di lavoro: <b>{{pagaStipendioTotOutput.entreateGiornoLavoro | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
                     <p>Entrate nette per ora di lavoro: <b>{{pagaStipendioTotOutput.pagaOrariaNetta | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>    
                 </div>
-                <div class="calcolatore-paga-semplice__output-results--mensile pt-3">
+                <div class="calcolatore-paga-semplice__output-results--mensile pt-3" id="calcolatore-semplice-results">
                     <div class="pb-2 semi-bold">Risultati ottenuti considerando <b>soltanto</b> lo stipendio mensile</div>
                     <p>Stipendio netto annuo: <b>{{pagaStipendioOutput.entrateNetteAnnue | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
                     <p>Entrate nette mensili: <b>{{pagaStipendioOutput.entrateNetteMese | currency:'EUR':'symbol':'1.2-2':'it' }}</b></p>
