@@ -14,6 +14,9 @@ import { CalcolatorePagaSempliceComponent } from './calcolatore-paga-semplice/ca
 import {MatInputModule} from '@angular/material/input'; 
 import {MatIconModule} from '@angular/material/icon'; 
 import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeIt from '@angular/common/locales/it';
+registerLocaleData(localeIt);
 
 @NgModule({
   declarations: [
