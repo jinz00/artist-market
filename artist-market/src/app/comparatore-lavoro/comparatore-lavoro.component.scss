@@ -1,0 +1,47 @@
+
+
+.comparatore-lavoro {
+  font-size: 18px;
+  background-color: white;
+  color: rgb(30, 24, 24);
+
+  input {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin-left: 10px;
+  }
+
+  &__entrate {
+    border: 3px solid green;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  &__spese {
+    border: 3px solid brown;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  &__data-summary {
+    border: 3px solid blue;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  button {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid darkblue;
+    color: darkblue;
+    font-weight: 450;
+
+    &:hover {
+      border-color: darkgreen;
+      color: darkgreen;
+    }
+  }
+}

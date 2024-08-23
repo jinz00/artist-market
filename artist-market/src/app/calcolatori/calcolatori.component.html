@@ -1,0 +1,78 @@
+<div class="app-calcolatori-container pt-3 px-2">
+  <div class="row mx-0 app-calcolatori__row align-items-center">
+    <div class="pb-4 col-xs-12 col-lg-4 col-md-6 d-flex justify-content-center">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Calcolatore Entrate Semplice</mat-card-title>
+          <mat-card-subtitle>Entrate / Tempo</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <p>
+            Calcolatore semplice per determinare le entrate nel tempo ( ore, giorno, mese )
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="navigateToCalcolatoreSemplice()" mat-raised-button color="primary" class="full-width-btn">Calcola</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="pb-4 col-xs-12 col-lg-4 col-md-6 d-flex justify-content-center">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Calcolatore Bilancio Complesso</mat-card-title>
+          <mat-card-subtitle>Bilancio entrate uscite / Tempo</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <p>
+            Calcolatore complesso per determinare il bilancio netto nel tempo ( ore, giorno, mese ).
+            Tiene in considerazione tutti i tipi di entrate e di uscite.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" disabled="disabled" class="full-width-btn">In Arrivo</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="pb-4 col-xs-12 col-lg-4 col-md-6 d-flex justify-content-center">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Calcolatore spese vizi</mat-card-title>
+          <mat-card-subtitle>Spese vizi nel tempo</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <p>
+            Calcolatore semplice per determinare le spese per vizi
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button (click)="navigateToCalcolatoreVizi()" color="primary" class="full-width-btn">Calcola</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="pb-4 col-xs-12 col-lg-4 col-md-6 d-flex justify-content-center">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Calcolatore Superminimi</mat-card-title>
+          <mat-card-subtitle>Superminimi / Entrate</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <p>
+            Calcolatore semplice per determinare la differenza di reddito nel caso in cui l'azienda per cui lavori non assorbisse i superminimi.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" disabled="disabled" class="full-width-btn">In Arrivo</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

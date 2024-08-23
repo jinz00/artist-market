@@ -1,0 +1,222 @@
+<div class="comparatore-lavoro mt-4">
+  <h1 class="mb-2">Calcolatori Lavoro</h1>
+  <div class="row">
+    <form class="col-xs-12 col-md-6" *ngIf="datiLavoroForm" [formGroup]="datiLavoroForm" (ngSubmit)="onSubmit()">
+      <div [formGroupName]="'datiEconomici'">
+        <div class="comparatore-lavoro__entrate">
+          <h3>ENTRATE</h3>
+          <div class="mt-2 form-control-field">
+            <input type="number" placeholder="RAL Netta annua" [formControlName]="'ral'">
+            <span> (Puoi calcolarla qui: <a href="https://www.pmi.it/servizi/292472/calcolo-stipendio-netto.html" target="_blank">Calcolatore stipendio netto</a>)</span>
+          </div>
+          <div class="form-control-field">
+            <input [formControlName]="'buoniPasto'">
+            <label>Buoni pasto mensili</label>
+          </div>
+          <div class="form-control-field">
+            <input [formControlName]="'bonusProduttività'">
+            <label>Bonus produttività annuo (Non incluso nella RAL)</label>
+          </div>
+          <div class="form-control-field">
+            <input [formControlName]="'straordinari'">
+            <label>Straordinari mensili netti (Stimare una media mensile)</label>
+          </div>
+          <div class="form-control-field">
+            <input [formControlName]="'mesiLavoroAnno'">
+            <label>Quanti mesi all'anno lavori?</label>
+          </div>
+          <div class="form-control-field">
+            <input [formControlName]="'oreLavoroSettimana'">
+            <label>Quante ore settimanali lavori?</label>
+          </div>
+          <div class="form-control-field">
+            <input [formControlName]="'giorniLavoroSettimana'">
+            <label>Quanti giorni a settimana lavori?</label>
+          </div>
+
+<!--           <div class="form-control-field">
+            <input [formControlName]="'aumentoAnnuo'">
+            <label>Aumento stipendio netto (Stimare aumento netto in un anno)</label>
+          </div> -->
+          <div class="mt-4">
+            <p class="mb-0"><b>Benefit o altri bonus Annuali (assicurazione sanitaria, fringe benefit)</b></p>
+            <ul>
+              <li><small>è opportuno considerare un benefit solo se ne si fruisce realmente</small></li>
+              <li><small>Nel caso dell'assicurazione sanitaria si consiglia di inserire l'importo ipotetico risparmiato in un anno. Esempio se spendo ogni anno in media 500€ in visite specialistiche e l'assicurazione le copre tutte inserirò quella cifra.</small></li>
+            </ul>
+            <div [formArrayName]="'benefitAnnuo'" *ngIf="benefitAnnuo">
+              <div *ngFor="let benefit of benefitAnnuo.controls; let i = index" [formGroupName]="i">
+                <div class="mt-2">
+                  <input formControlName="valore" placeholder="Valore">
+                  <button (click)="rimuoviControl(benefitAnnuo, i)">Rimuovi</button>
+                </div>
+              </div>
+              <button (click)="aggiungiControl(benefitAnnuo)">Aggiungi Benefit</button>
+            </div>
+          </div>
+          <div class="mt-4" [formArrayName]="'benefitMensile'">
+            <p class="mb-0"><b>Benefit o altri bonus Mensili (Palestra, mensa, asilo nido)</b></p>
+            <ul>
+              <li><small>è opportuno considerare un benefit solo se ne si fruisce, ad esempio considero la palestra solo se ci vado e grazie al benefit risparmio 50€ al mese, non la considero se non ci vado.</small></li>
+              <li><small>Quanto risparmi mensilmente grazie alla mensa aziendale?</small></li>
+            </ul>
+            <div *ngFor="let benefit of benefitMensile.controls; let i = index" [formGroupName]="i">
+              <div class="mt-2">
+                <input formControlName="valore" placeholder="Valore">
+                <button (click)="rimuoviControl(benefitMensile, i)">Rimuovi</button>
+              </div>
+            </div>
+            <button (click)="aggiungiControl(benefitMensile)">Aggiungi Benefit</button>
+          </div>
+          <div class="mt-4" [formArrayName]="'benefitUnaTantum'">
+            <p class="mb-0"><b>Benefit Una Tantum annualizzato (Automobile, pc, cellulare)</b></p>
+            <ul>
+              <li><small>è opportuno considerare un benefit solo se ne si fruisce, ad esempio non considero il telefono aziendale se non lo utilizzo</small></li>
+              <li><small>Esempio se ho un'auto aziendale e posso usarla anche per spostamenti personali, quanto risparmio ogni anno?</small></li>
+            </ul>
+            <div *ngFor="let benefit of benefitUnaTantum.controls; let i = index" [formGroupName]="i">
+              <div class="mt-2">
+                <input formControlName="valore" placeholder="Valore">
+                <button (click)="rimuoviControl(benefitUnaTantum, i)">Rimuovi</button>
+              </div>
+            </div>
+            <button (click)="aggiungiControl(benefitUnaTantum)">Aggiungi Benefit</button>
+          </div>
+        </div>
+        <div class="mt-4 comparatore-lavoro__spese">
+          <h3>SPESE</h3>
+          <div class="mb-3" [formArrayName]="'spesaFissa'">
+            <span class="">
+              Spese Fisse Annualizzate (esempio strumenti di lavoro, automobile, pc, telefono)
+            </span>
+            <ul>
+              <li><small>Inserisci spese sostenute per i beni necessari ad iniziare il lavoro e la loro durata ipotizzata</small></li>
+              <li><small>Esempio: se per iniziare un lavoro devi comprare un auto da 10'000 euro che ipotizzi cambierai tra 10 anni inserisci questi due dati</small></li>
+            </ul>
+            <div *ngFor="let benefit of spesaFissa.controls; let i = index" [formGroupName]="i">
+              <div class="mt-2">
+                <input formControlName="valore" placeholder="Valore">
+                <input formControlName="anni" placeholder="Anni">
+                <button (click)="rimuoviControl(spesaFissa, i)">Rimuovi</button>
+              </div>
+            </div>
+            <button (click)="aggiungiControl(spesaFissa, true)">Aggiungi Spesa</button>
+          </div>
+          <div class="mt-3" [formArrayName]="'spesaRicorrente'">
+            <span>
+              Spese Ricorrenti (esempio benzina, affitto, asilo nido, babysitter, assicurazione, bollo)
+            </span>
+            <ul>
+              <li><small>Andare a lavoro spesso comporta spese ricorrenti come quelle elencate. Vanno considerate poichè vanno sottratte alle entrate.</small></li>
+              <li><small>Esempio: se vado tutti i giorni a lavoro in macchina devo considerare il costo mensile della benzina.</small></li>
+              <li><small>Un lavoro homebased probabilmente farà risultare queste voci nulle.</small></li>
+            </ul>
+            <div *ngFor="let benefit of spesaRicorrente.controls; let i = index" [formGroupName]="i">
+              <div class="mt-2">
+                <input formControlName="valore" placeholder="Valore">
+                <button (click)="rimuoviControl(spesaRicorrente, i)">Rimuovi</button>
+              </div>
+            </div>
+            <button (click)="aggiungiControl(spesaRicorrente)">Aggiungi Spesa</button>
+          </div>
+        </div>
+        <div class="comparatore-lavoro__worklife-balance mt-4">
+          <h3>WorkLife Balance</h3>
+        </div>
+      </div>
+      <button class="mt-4" type="submit" [disabled]="!datiLavoroForm.valid">Avvia Calcolatore</button>
+    </form>
+    <div *ngIf="showResults" class="col-xs-12 col-md-6 comparatore-lavoro__data-summary">
+      <h2>RISULTATI</h2>
+      <div class="results-subtitle">
+        <b>
+
+        </b>
+      </div>
+      <div class="">
+        Entrate Nette Annue:
+        <b>{{ entrateAnnue | currency : 'EUR'}}</b>
+      </div>
+      <div class="">
+        Uscite Totali Annue:
+        <b>{{ usciteAnnue | currency : 'EUR'}}</b>
+      </div>
+      <div class="">
+        Bilancio Netto Annuo:
+        <b>{{ bilancioAnnuo | currency : 'EUR'}}</b>
+      </div>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          Paga mensile, giornaliera, oraria
+        </b>
+      </div>
+      <div class="">
+        Entrate Nette Mensili (12 mesi):
+        <b>{{ bilancioAnnuo / mesiAnno | currency : 'EUR'}}</b>
+      </div>
+      <div class="">
+        Entrate Nette per giorno:
+        <b>{{ bilancioAnnuo / mesiAnno / giorniMese | currency : 'EUR'}}</b>
+      </div>
+      <div class="">
+        Un'ora della tua vita vale:
+        <b>{{ bilancioAnnuo / mesiAnno / giorniMese / oreGiorno | currency : 'EUR'}}</b>
+      </div>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          Paga Effettiva
+        </b>
+        <div *ngIf="mesiLavoroAnno" class="">
+          Entrate Nette per mese di lavoro ({{mesiLavoroAnno}} mesi):
+          <b>{{ bilancioAnnuo / mesiLavoroAnno | currency : 'EUR'}}</b>
+        </div>
+        <div *ngIf="giorniLavoroMese && mesiLavoroAnno" class="">
+          Entrate Nette per giorno di lavoro effettivo:
+          <b>{{ bilancioAnnuo / mesiLavoroAnno / giorniLavoroMese | currency : 'EUR'}}</b>
+        </div>
+        <div *ngIf="oreLavoroGiorno && giorniLavoroMese && mesiLavoroAnno" class="">
+          Guadagno per ora di lavoro effettiva:
+          <b>{{ bilancioAnnuo / mesiLavoroAnno / giorniLavoroMese / oreLavoroGiorno | currency : 'EUR'}}</b>
+        </div>
+      </div>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          Confronto con media italiana (Lavoratore dipendente senza figli Istat 2020)
+        </b>
+        <div class="">
+          Guadagni <b>{{bilancioAnnuo > stipendioNettoMedioSingle ? bilancioAnnuo - stipendioNettoMedioSingle : stipendioNettoMedioSingle - bilancioAnnuo | currency : 'EUR'}}</b> in <b>{{bilancioAnnuo > stipendioNettoMedioSingle ? 'più' : 'meno'}}</b> rispetto allo stipendio medio italiano.
+        </div>
+        <div>
+          Lavori <b></b> giorni in più rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> giorni in meno rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> ore settimanali in più rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> ore settimanali in meno rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> mesi in più rispetto alla media italiana.
+        </div>
+        <div>
+          Lavori <b></b> mesi in meno rispetto alla media italiana.
+        </div>
+      </div>
+      <br>
+      <div class="results-subtitle">
+        <b>
+          WorkLife Balance
+        </b>
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

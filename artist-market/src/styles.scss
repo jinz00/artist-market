@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0 25px;
+}
+
+/* Nasconde le frecce dell'input number su Chrome, Safari, Edge e Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Nasconde le frecce dell'input number su Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.semi-bold {
+  font-weight: 500;
+}
