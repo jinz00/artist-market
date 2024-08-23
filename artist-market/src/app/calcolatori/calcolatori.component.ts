@@ -13,6 +13,10 @@ export class CalcolatoriComponent {
   navigateToCalcolatoreSemplice() {
     this.router.navigate(['/calcolatore-semplice']);
   }
+  
+  navigateToCalcolatoreVizi() {
+    this.router.navigate(['/calcolatore-vizi']);
+  }
   navigateToCalcolatoreComplesso() {
     this.router.navigate(['/calcolatore-complesso']);
   }

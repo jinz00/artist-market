@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
+import { VicesCalculatorComponent } from './vices-calculator/vices-calculator.component';
 registerLocaleData(localeIt);
 
 @NgModule({
@@ -24,6 +25,7 @@ registerLocaleData(localeIt);
     ComparatoreLavoroComponent,
     CalcolatoriComponent,
     CalcolatorePagaSempliceComponent,
+    VicesCalculatorComponent,
    ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ registerLocaleData(localeIt);
     MatButtonModule,
     LayoutModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'it' }],
   bootstrap: [AppComponent]

@@ -1,0 +1,57 @@
+<div class="expense-calculator-card">
+    <h2 class="calculator-title mb-4">Calcolatore spese per vizi</h2>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form [formGroup]="expenseForm" (ngSubmit)="addExpense()">
+          <div class="input-group">
+            <label for="name">Nome del Vizio</label>
+            <input id="name" formControlName="name" class="form-control" placeholder="Es. Fumo, Alcol, etc.">
+            <div *ngIf="expenseForm.get('name')?.invalid && expenseForm.get('name')?.touched" class="error-message">
+              Nome del vizio è richiesto
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="frequency">Frequenza</label>
+            <select id="frequency" formControlName="frequency" class="form-control">
+              <option *ngFor="let option of frequencyOptions" [value]="option.value">{{option.label}}</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="amount">Importo</label>
+            <input id="amount" type="number" formControlName="amount" class="form-control" placeholder="Inserisci l'importo">
+            <div *ngIf="expenseForm.get('amount')?.invalid && expenseForm.get('amount')?.touched" class="error-message">
+              Importo valido è richiesto
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="years">Anni</label>
+            <input id="years" type="number" formControlName="years" class="form-control" placeholder="Numero di anni">
+            <div *ngIf="expenseForm.get('years')?.invalid && expenseForm.get('years')?.touched" class="error-message">
+              Numero di anni valido è richiesto
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="expenseForm.invalid">Aggiungi Spesa</button>
+        </form>
+      </div>
+      <div class="col-12 col-md-6 results-section" #resultsSection>
+        <div class="expenses-list">
+          <h3>Spese Inserite:</h3>
+          <ul>
+            <li *ngFor="let expense of expenses" class="expense-item">
+              <span class="expense-name">{{expense.name}}</span>: {{expense.amount | number:'1.2-2'}}€ ({{expense.frequency}}) per {{expense.years}} anni
+              <br>
+              <span class="expense-total">Totale: {{expense.totalExpense | number:'1.2-2'}}€</span>
+            </li>
+          </ul>
+        </div>
+        <div class="total-expenses">
+          <h3>Totale Spese Complessive:</h3>
+          <p class="total-amount">{{calculateTotalExpense() | number:'1.2-2'}}€</p>
+        </div>
+        <button (click)="exportToImage()" class="btn btn-secondary export-button mt-3">
+            <span class="download-icon">⬇️</span> Scarica Riepilogo PNG
+          </button>
+      </div>
+    </div>
+  </div>
+  
